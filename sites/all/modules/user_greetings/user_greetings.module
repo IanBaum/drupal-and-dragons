@@ -1,0 +1,21 @@
+<?php
+
+function user_greetings_user_login(&$edit, $account) {
+
+    if(in_array("administrator", $account->roles)) {
+      drupal_set_message("Welcome, administrator.");
+    } else if(in_array("Dungeon Master", $account->roles)) {
+      drupal_set_message("welcome back, dungeon master " . $account->name . "!");
+    } else if(in_array("Dungeoneer", $account->roles)) {
+      drupal_set_message("welcome back, dungeoneer " . $account->name . "!");
+    }else if(in_array("authenticated user", $account->roles)) {
+      drupal_set_message("welcome back, " . $account->name . "!");
+    }
+
+
+  // echo '<pre>';
+  // var_dump($account);
+  // echo '</pre>';
+  // exit;
+
+}
